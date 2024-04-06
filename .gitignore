@@ -1,2 +1,5 @@
 /data
 /test
+/save_images
+/__pycache__
+/model
