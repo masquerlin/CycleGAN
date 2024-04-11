@@ -4,10 +4,10 @@
 
 ## 项目结构
 
-- **data-save**: 存放训练过程中生成的fake和true图片的文件夹。
-- **train**: 包含用于训练的冬季和夏季图片的子文件夹。
-- **model**: 包括训练期间损失函数的图像。
-- **app.py**: 用于加载训练好的模型并创建一个Gradio应用程序以生成季节性图片的脚本。
+- **data-save{true, fake}**: 存放训练过程中生成的fake和true图片的文件夹，应当手动创建
+- **train{summer,winter}**: 包含用于训练的冬季和夏季图片的子文件夹，应当下载数据集在此目录[Summer2Winter Yosemite](https://www.kaggle.com/datasets/balraj98/summer2winter-yosemite)
+- **model{loss}**: 包括训练期间损失函数的图像, 以及相应的模型文件
+- **app.py**: 用于加载训练好的模型并创建一个Gradio应用程序以生成季节性图片的网页端程序。
 - **config.py**: 包含模型训练参数和加载路径的文件。
 - **data_loading.py**: 用于加载数据集并创建图片对用于训练的模块。
 - **loss_dict_avg.json**: 记录生成器和判别器损失值的JSON文件。
@@ -30,24 +30,34 @@
 
 ### 冬季到夏季
 
-![Winter to Summer 1](./pngs/winter_origin_1.png)(./pngs/winter_to_summer_1.png)
+![Winter to Summer 1](./pngs/winter_origin_1.png)       ![Winter to Summer 1_1](./pngs/winter_to_summer_1.png)
+
 *描述: 冬季图片转换为夏季的示例。*
-![Winter to Summer 2](./pngs/winter_origin_2.png)(./pngs/winter_to_summer_2.png)
+
+![Winter to Summer 2](./pngs/winter_origin_2.png)       ![Winter to Summer 2_2](./pngs/winter_to_summer_2.png)
+
 *描述: 另一张冬季图片转换为夏季的示例。*
 
 ### 夏季到冬季
-![Summer to Winter 1](./pngs/summer_origin_1.png)(./pngs/summer_to_winter_1.png)
+![Summer to Winter 1](./pngs/summer_origin_1.png)       ![Summer to Winter 1_1](./pngs/summer_to_winter_1.png)
+
 *描述: 夏季图片转换为冬季的示例。*
-![Summer to Winter 1](./pngs/summer_origin_2.png)(./pngs/summer_to_winter_2.png)
+
+![Summer to Winter 1](./pngs/summer_origin_2.png)       ![Summer to Winter 2_2](./pngs/summer_to_winter_2.png)
+
 *描述: 另一张夏季图片转换为冬季的示例。*
 
 ## 损失函数演变
 
 以下图表展示了训练过程中损失函数的演变：
+第一张图片为损失随着epochs的变化的图表
 
 ![Generator and Discriminator Loss](./pngs/loss_plot_avg.png)
 
 *描述: 显示生成器和判别器损失随着epochs的变化的图表。*
+
+第二张图片为最后一轮迭代，各个部分的loss的详细图表，以一个batch_size为x轴的维度。
+
 ![Loss of the last epoch](./pngs/loss_plot_500.png)
 
 ## 使用方法
@@ -57,3 +67,15 @@
    ```bash
    git clone https://github.com/your_username/your_repository.git
    cd your_repository
+2. 安装相应环境：
+    ```bash
+   pip install -r requirements.txt
+3. 设置config参数
+
+4. 训练模型
+    ```bash
+    python train.py
+
+5. 加载模型进行生成图片，打开本地服务：
+    ```bash
+     python app.py
