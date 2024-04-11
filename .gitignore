@@ -1,5 +1,8 @@
-/data
-/test
-/save_images
+/data/train/summer/*.jpg
+/data/train/winter/*.jpg
+/data/save/fake/*
+/data/save/true/*
+/test/*.py
 /__pycache__
-/model
+/model/loss/*.png
+/model/*.pth
