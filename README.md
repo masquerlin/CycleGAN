@@ -1,4 +1,7 @@
 # CycleGAN应用于冬季和夏季图片风格的转化
+<p align="left">
+    <a href="README.md">中文</a>&nbsp ｜ <a href="README_EN.md">English</a>&nbsp
+</p>
 **Languages / 语言:**
 - [English](README_EN.md)
 - [中文](README.md)
