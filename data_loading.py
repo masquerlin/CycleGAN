@@ -1,5 +1,5 @@
 from torch.utils.data import Dataset
-import os
+import os,config,torch
 from PIL import Image
 import numpy as np
 
@@ -29,10 +29,17 @@ class Dataset_loading(Dataset):
 
         A_img = np.array(Image.open(A_path).convert("RGB"))
         B_img = np.array(Image.open(B_path).convert("RGB"))
+        # print(type(A_img))
+        # print(A_img.shape)
 
         if self.transform:
             augmentations = self.transform(image=A_img, image0=B_img)
             A_img = augmentations['image']
             B_img = augmentations['image0']
-
+        # print(type(A_img))
+        # print(A_img.shape)
         return A_img, B_img
+# dataset = Dataset_loading(config.TRAIN_DIR_A, config.TRAIN_DIR_B, transform=config.transforms)
+# for x,y in dataset:
+#     print(x.shape)
+#     break

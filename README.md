@@ -79,3 +79,7 @@
 5. 加载模型进行生成图片，打开本地服务：
     ```bash
      python app.py
+
+## gradio框架的轻量级应用:
+
+![app_show](./pngs/app_show.gif)

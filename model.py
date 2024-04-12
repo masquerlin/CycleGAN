@@ -90,8 +90,10 @@ class Discriminator(nn.Module):
 
 # def test():
 #     x = torch.randn((5, 3, 256, 256))
-#     model = Discriminator(in_channels=3)
+#     model = generator(img_channels=3)
 #     preds = model(x)
+#     for x in preds:
+#         print(x.shape)
 #     print(preds.shape)
 
 
